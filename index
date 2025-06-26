@@ -1,0 +1,1771 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отчёт по страховым компаниям МКБ</title>
+    <meta name="description" content="Профессиональный отчёт по страховым продуктам и тарифам партнёров МКБ">
+    <meta name="keywords" content="страхование, МКБ, тарифы, отчёт, АльфаСтрахование, ПАРИ, Югория">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.1) 10px,
+                rgba(255,255,255,0.1) 20px
+            );
+            animation: headerAnimation 20s linear infinite;
+            z-index: 1;
+        }
+        
+        @keyframes headerAnimation {
+            0% { transform: translateX(-50px) translateY(-50px); }
+            100% { transform: translateX(50px) translateY(50px); }
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes titleGlow {
+            from { text-shadow: 2px 2px 4px rgba(0,0,0,0.3), 0 0 20px rgba(255,255,255,0.2); }
+            to { text-shadow: 2px 2px 4px rgba(0,0,0,0.3), 0 0 30px rgba(255,255,255,0.4); }
+        }
+        
+        .header p {
+            font-size: 1.3em;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+        
+        .header-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .header-stat {
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .header-stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .header-stat-label {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+        
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .summary-card {
+            background: white;
+            padding: 30px 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .summary-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s;
+        }
+        
+        .summary-card:hover::before {
+            left: 100%;
+        }
+        
+        .summary-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        
+        .summary-card-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .summary-card h3 {
+            color: #667eea;
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .summary-card p {
+            color: #666;
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+        
+        .search-container {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .search-box {
+            padding: 15px 25px;
+            border: none;
+            border-radius: 50px;
+            width: 100%;
+            max-width: 400px;
+            font-size: 1.1em;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .search-box:focus {
+            outline: none;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+            transform: scale(1.02);
+        }
+        
+        .company-section {
+            background: white;
+            margin-bottom: 30px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .company-section:hover {
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .company-header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 25px 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .company-header:hover {
+            background: linear-gradient(135deg, #3d8bfe 0%, #0dcaf0 100%);
+        }
+        
+        .company-info {
+            flex: 1;
+        }
+        
+        .company-name {
+            font-size: 1.6em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .company-products {
+            font-size: 1em;
+            opacity: 0.9;
+        }
+        
+        .company-status {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .toggle-btn {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+        
+        .toggle-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.05);
+        }
+        
+        .expand-icon {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .company-content {
+            padding: 35px;
+            display: none;
+            animation: fadeInUp 0.5s ease;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .company-content.active {
+            display: block;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .product-card {
+            border: 2px solid #e1e8ed;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .product-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+            transform: translateY(-3px);
+        }
+        
+        .product-header {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 20px 25px;
+            font-weight: bold;
+            color: #333;
+            font-size: 1.3em;
+            text-align: center;
+        }
+        
+        .product-content {
+            padding: 25px;
+        }
+        
+        .insurance-type {
+            background: #f8f9fa;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #e9ecef;
+        }
+        
+        .insurance-type-header {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 15px 20px;
+            font-weight: bold;
+            color: #333;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .insurance-type-content {
+            padding: 20px;
+        }
+        
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            padding: 8px 0;
+            align-items: center;
+        }
+        
+        .detail-row:nth-child(even) {
+            background: rgba(0,0,0,0.03);
+            margin: 0 -15px 12px -15px;
+            padding: 8px 15px;
+            border-radius: 6px;
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            color: #555;
+            flex: 1;
+        }
+        
+        .detail-value {
+            color: #333;
+            font-weight: 500;
+            text-align: right;
+        }
+        
+        .limits-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .limits-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 12px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+        
+        .limits-table td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #e1e8ed;
+            transition: background-color 0.2s ease;
+        }
+        
+        .limits-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .limits-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .zero-limit {
+            background: #fff3cd !important;
+            color: #856404;
+            font-weight: bold;
+        }
+        
+        .manual-underwriting {
+            background: #f8d7da !important;
+            color: #721c24;
+            font-weight: bold;
+        }
+        
+        .region-limits {
+            margin-top: 20px;
+        }
+        
+        .region-item {
+            background: white;
+            border: 1px solid #e1e8ed;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .region-item:hover {
+            border-color: #667eea;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .tariff-range {
+            background: linear-gradient(135deg, #e3ffe7 0%, #d9e7ff 100%);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .highlight-number {
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .status-active {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .status-inactive {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .warning-icon {
+            color: #ffc107;
+            margin-right: 8px;
+            font-size: 1.2em;
+        }
+        
+        .error-icon {
+            color: #dc3545;
+            margin-right: 8px;
+            font-size: 1.2em;
+        }
+        
+        .success-icon {
+            color: #28a745;
+            margin-right: 8px;
+            font-size: 1.2em;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 50px;
+        }
+        
+        .footer p {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links {
+            margin-top: 20px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2.2em;
+            }
+            
+            .header-stats {
+                gap: 20px;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .summary-cards {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .company-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+                padding: 20px;
+            }
+            
+            .company-status {
+                justify-content: center;
+            }
+            
+            .detail-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            
+            .detail-value {
+                text-align: left;
+            }
+            
+            .limits-table {
+                font-size: 0.9em;
+            }
+            
+            .limits-table th,
+            .limits-table td {
+                padding: 8px 6px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .summary-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .summary-card h3 {
+                font-size: 2.2em;
+            }
+            
+            .company-name {
+                font-size: 1.3em;
+            }
+        }
+        
+        /* Анимации загрузки */
+        .fade-in {
+            animation: fadeIn 0.8s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Плавная прокрутка */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Улучшенные тултипы */
+        .tooltip {
+            position: relative;
+            cursor: help;
+        }
+        
+        .tooltip::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #333;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.85em;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .tooltip:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Улучшенная типографика */
+        .product-card h4 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        .highlight-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header fade-in">
+            <div class="header-content">
+                <h1>📊 Отчёт по страховым компаниям</h1>
+                <p>Профессиональный анализ продуктов и условий страхования партнёров МКБ</p>
+                <div class="header-stats">
+                    <div class="header-stat">
+                        <span class="header-stat-number">7</span>
+                        <span class="header-stat-label">компаний</span>
+                    </div>
+                    <div class="header-stat">
+                        <span class="header-stat-number">8</span>
+                        <span class="header-stat-label">продуктов</span>
+                    </div>
+                    <div class="header-stat">
+                        <span class="header-stat-number">3</span>
+                        <span class="header-stat-label">типа страхования</span>
+                    </div>
+                    <div class="header-stat">
+                        <span class="header-stat-number">22</span>
+                        <span class="header-stat-label">тарифных руководства</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="search-container fade-in">
+            <input type="text" class="search-box" placeholder="🔍 Поиск по названию страховой компании..." 
+                   onkeyup="searchCompanies(this.value)">
+        </div>
+        
+        <div class="summary-cards fade-in">
+            <div class="summary-card">
+                <span class="summary-card-icon">🏢</span>
+                <h3>7</h3>
+                <p>Страховых компаний-партнёров</p>
+            </div>
+            <div class="summary-card">
+                <span class="summary-card-icon">📋</span>
+                <h3>8</h3>
+                <p>Страховых продуктов</p>
+            </div>
+            <div class="summary-card">
+                <span class="summary-card-icon">🛡️</span>
+                <h3>3</h3>
+                <p>Типа страхования</p>
+            </div>
+            <div class="summary-card">
+                <span class="summary-card-icon">📊</span>
+                <h3>22</h3>
+                <p>Тарифных руководства</p>
+            </div>
+        </div>
+
+        <main id="companiesContainer">
+            <!-- АО АльфаСтрахование -->
+            <section class="company-section fade-in">
+                <div class="company-header" onclick="toggleCompany(this)">
+                    <div class="company-info">
+                        <div class="company-name">АО "АльфаСтрахование"</div>
+                        <div class="company-products">1 продукт: Готовое жилье</div>
+                    </div>
+                    <div class="company-status">
+                        <button class="toggle-btn">
+                            Развернуть <span class="expand-icon">▼</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="company-content">
+                    <div class="products-grid">
+                        <article class="product-card">
+                            <div class="product-header">Готовое жилье</div>
+                            <div class="product-content">
+                                <div class="insurance-type">
+                                    <div class="insurance-type-header">
+                                        🛡️ Страхование жизни заемщика
+                                    </div>
+                                    <div class="insurance-type-content">
+                                        <div class="detail-row">
+                                            <span class="detail-label">Статус:</span>
+                                            <span class="detail-value"><span class="status-badge status-active">Активно</span></span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span class="detail-label">Возраст заемщика:</span>
+                                            <span class="detail-value"><span class="highlight-number">18-65 лет</span></span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span class="detail-label">Окончание действия:</span>
+                                            <span class="detail-value"><span class="highlight-number">до 70 лет</span></span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span class="detail-label">Комиссия банка:</span>
+                                            <span class="detail-value">0%</span>
+                                        </div>
+                                        <div class="tariff-range">
+                                            <strong>Диапазон тарифов:</strong> от 0.25% (жен. 18 лет) до 6.70% (муж. 70 лет)
+                                        </div>
+                                        
+                                        <table class="limits-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Возрастная группа</th>
+                                                    <th>Лимит СС (муж/жен)</th>
+                                                    <th>Статус обработки</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>18-65 лет</td>
+                                                    <td><span class="highlight-number">15 000 000 ₽</span></td>
+                                                    <td><span class="success-icon">✓</span>Автоматическое одобрение</td>
+                                                </tr>
+                                                <tr class="manual-underwriting">
+                                                    <td>Специальные регионы</td>
+                                                    <td><span class="highlight-number">0 ₽</span></td>
+                                                    <td><span class="error-icon">⚠</span>Ручной андеррайтинг</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                
+                                <div class="insurance-type">
+                                    <div class="insurance-type-header">
+                                        🏠 Страхование имущества
+                                    </div>
+                                    <div class="insurance-type-content">
+                                        <div class="detail-row">
+                                            <span class="detail-label">Статус:</span>
+                                            <span class="detail-value"><span class="status-badge status-active">Активно</span></span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span class="detail-label">Тариф:</span>
+                                            <span class="detail-value"><span class="highlight-number">0.154%</span></span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span class="detail-label">Комиссия банка:</span>
+                                            <span class="detail-value">0%</span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span class="detail-label">Типы недвижимости:</span>
+                                            <span class="detail-value">Квартира, Дом, Паркинг</span>
+                                        </div>
+                                        
+                                        <div class="region-limits">
+                                            <div class="region-item">
+                                                <strong>Общий лимит по всем регионам:</strong> <span class="highlight-number">20 000 000 ₽</span>
+                                            </div>
+                                            <div class="region-item manual-underwriting">
+                                                <strong>Исключенные регионы:</strong> <span class="highlight-number">0 ₽</span> (Ручной андеррайтинг)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="insurance-type">
+                                    <div class="insurance-type-header">
+                                        📋 Страхование титула собственности
+                                    </div>
+                                    <div class="insurance-type-content">
+                                        <div class="detail-row">
+                                            <span class="detail-label">Статус:</span>
+                                            <span class="detail-value"><span class="status-badge status-active">Активно</span></span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span class="detail-label">Тариф:</span>
+                                            <span class="detail-value"><span class="highlight-number">0.20%</span></span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span class="detail-label">Период страхования:</span>
+                                            <span class="detail-value">1 год</span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span class="detail-label">Комиссия банка:</span>
+                                            <span class="detail-value">0%</span>
+                                        </div>
+                                        
+                                        <div class="region-limits">
+                                            <div class="region-item">
+                                                <strong>Общий лимит по всем регионам:</strong> <span class="highlight-number">7 000 000 ₽</span>
+                                            </div>
+                                            <div class="region-item manual-underwriting">
+                                                <strong>Исключенные регионы:</strong> <span class="highlight-number">0 ₽</span> (Ручной андеррайтинг)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- АО Страховая компания ПАРИ -->
+            <section class="company-section fade-in">
+                <div class="company-header" onclick="toggleCompany(this)">
+                    <div class="company-info">
+                        <div class="company-name">АО "Страховая компания 'ПАРИ'"</div>
+                        <div class="company-products">1 продукт: Готовое жилье</div>
+                    </div>
+                    <div class="company-status">
+                        <button class="toggle-btn">
+                            Развернуть <span class="expand-icon">▼</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="company-content">
+                    <div class="products-grid">
+                        <article class="product-card">
+                            <div class="product-header">Готовое жилье</div>
+                            <div class="product-content">
+                                <div class="insurance-type">
+                                    <div class="insurance-type-header">
+                                        🛡️ Страхование жизни заемщика
+                                    </div>
+                                    <div class="insurance-type-content">
+                                        <div class="detail-row">
+                                            <span class="detail-label">Статус:</span>
+                                            <span class="detail-value"><span class="status-badge status-active">Активно</span></span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span class="detail-label">Возраст заемщика:</span>
+                                            <span class="detail-value"><span class="highlight-number">18-55 лет</span></span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span class="detail-label">Окончание действия:</span>
+                                            <span class="detail-value"><span class="highlight-number">до 75 лет</span></span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span class="detail-label">Комиссия банка:</span>
+                                            <span class="detail-value">0%</span>
+                                        </div>
+                                        
+                                        <table class="limits-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Возрастная группа</th>
+                                                    <th>Лимит СС</th>
+                                                    <th>Статус обработки</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>18-50 лет</td>
+                                                    <td><span class="highlight-number">30 000 000 ₽</span></td>
+                                                    <td><span class="success-icon">✓</span>Автоматическое одобрение</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>51-55 лет</td>
+                                                    <td><span class="highlight-number">15 000 000 ₽</span></td>
+                                                    <td><span class="success-icon">✓</span>Автоматическое одобрение</td>
+                                                </tr>
+                                                <tr class="manual-underwriting">
+                                                    <td>56+ лет</td>
+                                                    <td><span class="highlight-number">0 ₽</span></td>
+                                                    <td><span class="error-icon">⚠</span>Ручной андеррайтинг</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                
+                                <div class="insurance-type">
+                                    <div class="insurance-type-header">
+                                        🏠 Страхование имущества
+                                    </div>
+                                    <div class="insurance-type-content">
+                                        <div class="detail-row">
+                                            <span class="detail-label">Тариф:</span>
+                                            <span class="detail-value"><span class="highlight-number">0.154%</span></span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span class="detail-label">Лимит страховой суммы:</span>
+                                            <span class="detail-value"><span class="highlight-number">30 000 000 ₽</span></span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span class="detail-label">Типы недвижимости:</span>
+                                            <span class="detail-value">Квартира, Дом, Паркинг</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="insurance-type">
+                                    <div class="insurance-type-header">
+                                        📋 Страхование титула собственности
+                                    </div>
+                                    <div class="insurance-type-content">
+                                        <div class="detail-row">
+                                            <span class="detail-label">Тариф:</span>
+                                            <span class="detail-value"><span class="highlight-number">0.20%</span></span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span class="detail-label">Лимит страховой суммы:</span>
+                                            <span class="detail-value"><span class="highlight-number">1 000 000 ₽</span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ГСК Югория -->
+            <section class="company-section fade-in">
+                <div class="company-header" onclick="toggleCompany(this)">
+                    <div class="company-info">
+                        <div class="company-name">ГСК "Югория"</div>
+                        <div class="company-products">2 продукта: Готовое жилье, Дострахование</div>
+                    </div>
+                    <div class="company-status">
+                        <button class="toggle-btn">
+                            Развернуть <span class="expand-icon">▼</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="company-content">
+                    <div class="products-grid">
+                        <article class="product-card">
+                            <div class="product-header">Готовое жилье</div>
+                            <div class="product-content">
+                                <div class="insurance-type">
+                                    <div class="insurance-type-header">
+                                        🛡️ Страхование жизни заемщика
+                                    </div>
+                                    <div class="insurance-type-content">
+                                        <div class="detail-row">
+                                            <span class="detail-label">Возраст заемщика:</span>
+                                            <span class="detail-value"><span class="highlight-number">18-65 лет</span></span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span class="detail-label">Окончание действия:</span>
+                                            <span class="detail-value"><span class="highlight-number">до 70 лет</span></span>
+                                        </div>
+                                        
+                                        <table class="limits-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Возрастная группа</th>
+                                                    <th>Лимит СС</th>
+                                                    <th>Статус обработки</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>18-34 лет</td>
+                                                    <td><span class="highlight-number">35 000 000 ₽</span></td>
+                                                    <td><span class="success-icon">✓</span>Автоматическое одобрение</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>35-44 лет</td>
+                                                    <td><span class="highlight-number">30 000 000 ₽</span></td>
+                                                    <td><span class="success-icon">✓</span>Автоматическое одобрение</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>45-54 лет</td>
+                                                    <td><span class="highlight-number">23 000 000 ₽</span></td>
+                                                    <td><span class="success-icon">✓</span>Автоматическое одобрение</td>
+                                                </tr>
+                                                <tr class="manual-underwriting">
+                                                    <td>55+ лет</td>
+                                                    <td><span class="highlight-number">0 ₽</span></td>
+                                                    <td><span class="error-icon">⚠</span>Ручной андеррайтинг</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                
+                                <div class="insurance-type">
+                                    <div class="insurance-type-header">
+                                        🏠 Страхование имущества
+                                    </div>
+                                    <div class="insurance-type-content">
+                                        <div class="detail-row">
+                                            <span class="detail-label">Тариф:</span>
+                                            <span class="detail-value"><span class="highlight-number">0.154%</span></span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span class="detail-label">Лимит страховой суммы:</span>
+                                            <span class="detail-value"><span class="highlight-number">30 000 000 ₽</span></span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span class="detail-label">Типы недвижимости:</span>
+                                            <span class="detail-value">Квартира</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="insurance-type">
+                                    <div class="insurance-type-header">
+                                        📋 Страхование титула собственности
+                                    </div>
+                                    <div class="insurance-type-content">
+                                        <div class="detail-row">
+                                            <span class="detail-label">Тариф:</span>
+                                            <span class="detail-value"><span class="highlight-number">0.20%</span></span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span class="detail-label">Лимит страховой суммы:</span>
+                                            <span class="detail-value manual-underwriting"><span class="highlight-number">0 ₽</span> (Ручной андеррайтинг)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="product-card">
+                            <div class="product-header">Дострахование</div>
+                            <div class="product-content">
+                                <div class="insurance-type">
+                                    <div class="insurance-type-header">
+                                        🏠 Страхование имущества
+                                    </div>
+                                    <div class="insurance-type-content">
+                                        <div class="detail-row">
+                                            <span class="detail-label">Тариф:</span>
+                                            <span class="detail-value"><span class="highlight-number">0.154%</span></span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span class="detail-label">Лимит страховой суммы:</span>
+                                            <span class="detail-value"><span class="highlight-number">30 000 000 ₽</span></span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span class="detail-label">Типы недвижимости:</span>
+                                            <span class="detail-value">Квартира</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ООО Абсолют Страхование -->
+            <section class="company-section fade-in">
+                <div class="company-header" onclick="toggleCompany(this)">
+                    <div class="company-info">
+                        <div class="company-name">ООО "Абсолют Страхование"</div>
+                        <div class="company-products">1 продукт: Готовое жилье</div>
+                    </div>
+                    <div class="company-status">
+                        <button class="toggle-btn">
+                            Развернуть <span class="expand-icon">▼</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="company-content">
+                    <div class="products-grid">
+                        <article class="product-card">
+                            <div class="product-header">Готовое жилье</div>
+                            <div class="product-content">
+                                <div class="insurance-type">
+                                    <div class="insurance-type-header">
+                                        🛡️ Страхование жизни заемщика
+                                    </div>
+                                    <div class="insurance-type-content">
+                                        <div class="detail-row">
+                                            <span class="detail-label">Возраст заемщика:</span>
+                                            <span class="detail-value"><span class="highlight-number">18-50 лет</span></span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span class="detail-label">Окончание действия:</span>
+                                            <span class="detail-value"><span class="highlight-number">до 75 лет</span></span>
+                                        </div>
+                                        
+                                        <table class="limits-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Возрастная группа</th>
+                                                    <th>Лимит СС</th>
+                                                    <th>Статус обработки</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>18-47 лет</td>
+                                                    <td><span class="highlight-number">20 000 000 ₽</span></td>
+                                                    <td><span class="success-icon">✓</span>Автоматическое одобрение</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>48-50 лет</td>
+                                                    <td><span class="highlight-number">7 000 000 ₽</span></td>
+                                                    <td><span class="success-icon">✓</span>Автоматическое одобрение</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>51-54 лет</td>
+                                                    <td><span class="highlight-number">4 000 000 ₽</span></td>
+                                                    <td><span class="success-icon">✓</span>Автоматическое одобрение</td>
+                                                </tr>
+                                                <tr class="manual-underwriting">
+                                                    <td>55+ лет</td>
+                                                    <td><span class="highlight-number">0 ₽</span></td>
+                                                    <td><span class="error-icon">⚠</span>Ручной андеррайтинг</td>
+                                                </tr>
+                                                <tr class="manual-underwriting">
+                                                    <td>Исключенные регионы</td>
+                                                    <td><span class="highlight-number">0 ₽</span></td>
+                                                    <td><span class="error-icon">⚠</span>Ручной андеррайтинг</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                
+                                <div class="insurance-type">
+                                    <div class="insurance-type-header">
+                                        🏠 Страхование имущества
+                                    </div>
+                                    <div class="insurance-type-content">
+                                        <div class="detail-row">
+                                            <span class="detail-label">Тариф:</span>
+                                            <span class="detail-value"><span class="highlight-number">0.154%</span></span>
+                                        </div>
+                                        
+                                        <div class="region-limits">
+                                            <div class="region-item">
+                                                <strong>Общий лимит по всем регионам:</strong> <span class="highlight-number">15 000 000 ₽</span>
+                                            </div>
+                                            <div class="region-item">
+                                                <strong>Москва и Московская область:</strong> <span class="highlight-number">20 000 000 ₽</span>
+                                            </div>
+                                            <div class="region-item manual-underwriting">
+                                                <strong>Исключенные регионы:</strong> <span class="highlight-number">0 ₽</span> (Ручной андеррайтинг)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="insurance-type">
+                                    <div class="insurance-type-header">
+                                        📋 Страхование титула собственности
+                                    </div>
+                                    <div class="insurance-type-content">
+                                        <div class="detail-row">
+                                            <span class="detail-label">Тариф:</span>
+                                            <span class="detail-value"><span class="highlight-number">0.20%</span></span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span class="detail-label">Общий лимит:</span>
+                                            <span class="detail-value"><span class="highlight-number">2 500 000 ₽</span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ООО СК Согласие -->
+            <section class="company-section fade-in">
+                <div class="company-header" onclick="toggleCompany(this)">
+                    <div class="company-info">
+                        <div class="company-name">ООО "СК 'Согласие'"</div>
+                        <div class="company-products">1 продукт: Готовое жилье</div>
+                    </div>
+                    <div class="company-status">
+                        <button class="toggle-btn">
+                            Развернуть <span class="expand-icon">▼</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="company-content">
+                    <div class="products-grid">
+                        <article class="product-card">
+                            <div class="product-header">Готовое жилье</div>
+                            <div class="product-content">
+                                <div class="insurance-type">
+                                    <div class="insurance-type-header">
+                                        🛡️ Страхование жизни заемщика
+                                    </div>
+                                    <div class="insurance-type-content">
+                                        <div class="detail-row">
+                                            <span class="detail-label">Возраст заемщика:</span>
+                                            <span class="detail-value"><span class="highlight-number">18-50 лет</span></span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span class="detail-label">Окончание действия:</span>
+                                            <span class="detail-value"><span class="highlight-number">до 70 лет</span></span>
+                                        </div>
+                                        
+                                        <table class="limits-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Возрастная группа</th>
+                                                    <th>Лимит СС</th>
+                                                    <th>Статус обработки</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="manual-underwriting">
+                                                    <td>18-20 лет</td>
+                                                    <td><span class="highlight-number">0 ₽</span></td>
+                                                    <td><span class="error-icon">⚠</span>Ручной андеррайтинг</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>21-45 лет</td>
+                                                    <td><span class="highlight-number">25 000 000 ₽</span></td>
+                                                    <td><span class="success-icon">✓</span>Автоматическое одобрение</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>46-50 лет</td>
+                                                    <td><span class="highlight-number">12 000 000 ₽</span></td>
+                                                    <td><span class="success-icon">✓</span>Автоматическое одобрение</td>
+                                                </tr>
+                                                <tr class="manual-underwriting">
+                                                    <td>51+ лет</td>
+                                                    <td><span class="highlight-number">0 ₽</span></td>
+                                                    <td><span class="error-icon">⚠</span>Ручной андеррайтинг</td>
+                                                </tr>
+                                                <tr class="manual-underwriting">
+                                                    <td>Исключенные регионы</td>
+                                                    <td><span class="highlight-number">0 ₽</span></td>
+                                                    <td><span class="error-icon">⚠</span>Ручной андеррайтинг</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                
+                                <div class="insurance-type">
+                                    <div class="insurance-type-header">
+                                        🏠 Страхование имущества
+                                    </div>
+                                    <div class="insurance-type-content">
+                                        <div class="detail-row">
+                                            <span class="detail-label">Тариф:</span>
+                                            <span class="detail-value"><span class="highlight-number">0.154%</span></span>
+                                        </div>
+                                        
+                                        <div class="region-limits">
+                                            <div class="region-item">
+                                                <strong>Общий лимит по всем регионам:</strong> <span class="highlight-number">25 000 000 ₽</span>
+                                            </div>
+                                            <div class="region-item manual-underwriting">
+                                                <strong>Исключенные регионы:</strong> <span class="highlight-number">0 ₽</span> (Ручной андеррайтинг)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="insurance-type">
+                                    <div class="insurance-type-header">
+                                        📋 Страхование титула собственности
+                                    </div>
+                                    <div class="insurance-type-content">
+                                        <div class="detail-row">
+                                            <span class="detail-label">Тариф:</span>
+                                            <span class="detail-value"><span class="highlight-number">0.20%</span></span>
+                                        </div>
+                                        
+                                        <div class="region-limits">
+                                            <div class="region-item">
+                                                <strong>Общий лимит по всем регионам:</strong> <span class="highlight-number">15 000 000 ₽</span>
+                                            </div>
+                                            <div class="region-item manual-underwriting">
+                                                <strong>Исключенные регионы:</strong> <span class="highlight-number">0 ₽</span> (Ручной андеррайтинг)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ПАО Группа Ренессанс Страхование -->
+            <section class="company-section fade-in">
+                <div class="company-header" onclick="toggleCompany(this)">
+                    <div class="company-info">
+                        <div class="company-name">ПАО "Группа Ренессанс Страхование"</div>
+                        <div class="company-products">1 продукт: Готовое жилье</div>
+                    </div>
+                    <div class="company-status">
+                        <button class="toggle-btn">
+                            Развернуть <span class="expand-icon">▼</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="company-content">
+                    <div class="products-grid">
+                        <article class="product-card">
+                            <div class="product-header">Готовое жилье</div>
+                            <div class="product-content">
+                                <div class="insurance-type">
+                                    <div class="insurance-type-header">
+                                        🛡️ Страхование жизни заемщика
+                                    </div>
+                                    <div class="insurance-type-content">
+                                        <div class="detail-row">
+                                            <span class="detail-label">Возраст заемщика:</span>
+                                            <span class="detail-value"><span class="highlight-number">18-55 лет</span></span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span class="detail-label">Окончание действия:</span>
+                                            <span class="detail-value"><span class="highlight-number">до 75 лет</span></span>
+                                        </div>
+                                        
+                                        <table class="limits-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Возрастная группа</th>
+                                                    <th>Лимит СС</th>
+                                                    <th>Статус обработки</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>18-50 лет</td>
+                                                    <td><span class="highlight-number">15 000 000 ₽</span></td>
+                                                    <td><span class="success-icon">✓</span>Автоматическое одобрение</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>51-65 лет</td>
+                                                    <td><span class="highlight-number">10 000 000 ₽</span></td>
+                                                    <td><span class="success-icon">✓</span>Автоматическое одобрение</td>
+                                                </tr>
+                                                <tr class="manual-underwriting">
+                                                    <td>66+ лет</td>
+                                                    <td><span class="highlight-number">0 ₽</span></td>
+                                                    <td><span class="error-icon">⚠</span>Ручной андеррайтинг</td>
+                                                </tr>
+                                                <tr class="manual-underwriting">
+                                                    <td>Исключенные регионы</td>
+                                                    <td><span class="highlight-number">0 ₽</span></td>
+                                                    <td><span class="error-icon">⚠</span>Ручной андеррайтинг</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                
+                                <div class="insurance-type">
+                                    <div class="insurance-type-header">
+                                        🏠 Страхование имущества
+                                    </div>
+                                    <div class="insurance-type-content">
+                                        <div class="detail-row">
+                                            <span class="detail-label">Тариф:</span>
+                                            <span class="detail-value"><span class="highlight-number">0.154%</span></span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span class="detail-label">Комиссия банка:</span>
+                                            <span class="detail-value"><span class="highlight-number">55%</span></span>
+                                        </div>
+                                        
+                                        <div class="region-limits">
+                                            <div class="region-item">
+                                                <strong>Общий лимит по всем регионам:</strong> <span class="highlight-number">15 000 000 ₽</span>
+                                            </div>
+                                            <div class="region-item manual-underwriting">
+                                                <strong>Исключенные регионы:</strong> <span class="highlight-number">0 ₽</span> (Ручной андеррайтинг)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="insurance-type">
+                                    <div class="insurance-type-header">
+                                        📋 Страхование титула собственности
+                                    </div>
+                                    <div class="insurance-type-content">
+                                        <div class="detail-row">
+                                            <span class="detail-label">Тариф:</span>
+                                            <span class="detail-value"><span class="highlight-number">0.20%</span></span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span class="detail-label">Комиссия банка:</span>
+                                            <span class="detail-value"><span class="highlight-number">55%</span></span>
+                                        </div>
+                                        
+                                        <div class="region-limits">
+                                            <div class="region-item">
+                                                <strong>Общий лимит по всем регионам:</strong> <span class="highlight-number">15 000 000 ₽</span>
+                                            </div>
+                                            <div class="region-item manual-underwriting">
+                                                <strong>Исключенные регионы:</strong> <span class="highlight-number">0 ₽</span> (Ручной андеррайтинг)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ПАО СК Росгосстрах -->
+            <section class="company-section fade-in">
+                <div class="company-header" onclick="toggleCompany(this)">
+                    <div class="company-info">
+                        <div class="company-name">ПАО СК "Росгосстрах"</div>
+                        <div class="company-products">1 продукт: Готовое жилье</div>
+                    </div>
+                    <div class="company-status">
+                        <button class="toggle-btn">
+                            Развернуть <span class="expand-icon">▼</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="company-content">
+                    <div class="products-grid">
+                        <article class="product-card">
+                            <div class="product-header">Готовое жилье</div>
+                            <div class="product-content">
+                                <div class="insurance-type">
+                                    <div class="insurance-type-header">
+                                        🛡️ Страхование жизни заемщика
+                                    </div>
+                                    <div class="insurance-type-content">
+                                        <div class="detail-row">
+                                            <span class="detail-label">Возраст заемщика:</span>
+                                            <span class="detail-value"><span class="highlight-number">18-50 лет</span></span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span class="detail-label">Окончание действия:</span>
+                                            <span class="detail-value"><span class="highlight-number">до 70 лет</span></span>
+                                        </div>
+                                        
+                                        <table class="limits-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Регион / Возрастная группа</th>
+                                                    <th>Лимит СС</th>
+                                                    <th>Статус обработки</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Москва, МО, СПб (18-40 лет)</td>
+                                                    <td><span class="highlight-number">15 000 000 ₽</span></td>
+                                                    <td><span class="success-icon">✓</span>Автоматическое одобрение</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Москва, МО, СПб (41-45 лет)</td>
+                                                    <td><span class="highlight-number">11 000 000 ₽</span></td>
+                                                    <td><span class="success-icon">✓</span>Автоматическое одобрение</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Москва, МО, СПб (46-49 лет)</td>
+                                                    <td><span class="highlight-number">6 000 000 ₽</span></td>
+                                                    <td><span class="success-icon">✓</span>Автоматическое одобрение</td>
+                                                </tr>
+                                                <tr class="zero-limit">
+                                                    <td>Москва, МО, СПб (50+ лет)</td>
+                                                    <td><span class="highlight-number">1 ₽</span></td>
+                                                    <td><span class="warning-icon">⚠</span>Минимальный лимит</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Другие регионы (18-45 лет)</td>
+                                                    <td><span class="highlight-number">10 000 000 ₽</span></td>
+                                                    <td><span class="success-icon">✓</span>Автоматическое одобрение</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Другие регионы (46-49 лет)</td>
+                                                    <td><span class="highlight-number">6 000 000 ₽</span></td>
+                                                    <td><span class="success-icon">✓</span>Автоматическое одобрение</td>
+                                                </tr>
+                                                <tr class="manual-underwriting">
+                                                    <td>Другие регионы (50+ лет)</td>
+                                                    <td><span class="highlight-number">0 ₽</span></td>
+                                                    <td><span class="error-icon">⚠</span>Ручной андеррайтинг</td>
+                                                </tr>
+                                                <tr class="manual-underwriting">
+                                                    <td>Исключенные регионы</td>
+                                                    <td><span class="highlight-number">0 ₽</span></td>
+                                                    <td><span class="error-icon">⚠</span>Ручной андеррайтинг</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                
+                                <div class="insurance-type">
+                                    <div class="insurance-type-header">
+                                        🏠 Страхование имущества
+                                    </div>
+                                    <div class="insurance-type-content">
+                                        <div class="detail-row">
+                                            <span class="detail-label">Тариф:</span>
+                                            <span class="detail-value"><span class="highlight-number">0.154%</span></span>
+                                        </div>
+                                        
+                                        <div class="region-limits">
+                                            <div class="region-item">
+                                                <strong>Москва, МО, СПб:</strong> <span class="highlight-number">15 000 000 ₽</span>
+                                            </div>
+                                            <div class="region-item">
+                                                <strong>Другие регионы:</strong> <span class="highlight-number">10 000 000 ₽</span>
+                                            </div>
+                                            <div class="region-item manual-underwriting">
+                                                <strong>Исключенные регионы:</strong> <span class="highlight-number">0 ₽</span> (Ручной андеррайтинг)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="insurance-type">
+                                    <div class="insurance-type-header">
+                                        📋 Страхование титула собственности
+                                    </div>
+                                    <div class="insurance-type-content">
+                                        <div class="detail-row">
+                                            <span class="detail-label">Тариф:</span>
+                                            <span class="detail-value"><span class="highlight-number">0.20%</span></span>
+                                        </div>
+                                        
+                                        <div class="region-limits">
+                                            <div class="region-item">
+                                                <strong>Общий лимит по всем регионам:</strong> <span class="highlight-number">10 000 000 ₽</span>
+                                            </div>
+                                            <div class="region-item manual-underwriting">
+                                                <strong>Исключенные регионы:</strong> <span class="highlight-number">0 ₽</span> (Ручной андеррайтинг)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="footer fade-in">
+            <p><strong>Отчёт по страховым компаниям МКБ</strong></p>
+            <p>Данные актуальны на 26 июня 2025 года</p>
+            <div class="footer-links">
+                <a href="#" onclick="scrollToTop()">↑ Наверх</a>
+                <a href="mailto:info@mkb.ru">Связаться с нами</a>
+                <a href="https://www.mkb.ru" target="_blank">mkb.ru</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Функция переключения секций компаний
+        function toggleCompany(element) {
+            const companySection = element.closest('.company-section');
+            const content = companySection.querySelector('.company-content');
+            const button = element.querySelector('.toggle-btn');
+            const icon = element.querySelector('.expand-icon');
+            
+            content.classList.toggle('active');
+            
+            if (content.classList.contains('active')) {
+                button.innerHTML = 'Свернуть <span class="expand-icon">▲</span>';
+                companySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+                button.innerHTML = 'Развернуть <span class="expand-icon">▼</span>';
+            }
+        }
+        
+        // Функция поиска по компаниям
+        function searchCompanies(query) {
+            const companies = document.querySelectorAll('.company-section');
+            let visibleCount = 0;
+            
+            companies.forEach(company => {
+                const companyName = company.querySelector('.company-name').textContent.toLowerCase();
+                const companyProducts = company.querySelector('.company-products').textContent.toLowerCase();
+                
+                if (companyName.includes(query.toLowerCase()) || 
+                    companyProducts.includes(query.toLowerCase()) || 
+                    query === '') {
+                    company.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    company.style.display = 'none';
+                }
+            });
+            
+            // Показываем сообщение если ничего не найдено
+            let noResultsMsg = document.getElementById('no-results');
+            if (visibleCount === 0 && query !== '') {
+                if (!noResultsMsg) {
+                    noResultsMsg = document.createElement('div');
+                    noResultsMsg.id = 'no-results';
+                    noResultsMsg.style.cssText = `
+                        text-align: center; 
+                        padding: 50px; 
+                        color: #666; 
+                        font-size: 1.2em;
+                        background: white;
+                        border-radius: 15px;
+                        margin: 20px 0;
+                        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                    `;
+                    noResultsMsg.innerHTML = `
+                        <h3>🔍 Ничего не найдено</h3>
+                        <p>Попробуйте изменить запрос или очистите поле поиска</p>
+                    `;
+                    document.getElementById('companiesContainer').appendChild(noResultsMsg);
+                }
+            } else if (noResultsMsg) {
+                noResultsMsg.remove();
+            }
+        }
+        
+        // Функция прокрутки наверх
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // Анимация при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            // Последовательная анимация элементов
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach((element, index) => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+                
+                setTimeout(() => {
+                    element.style.transition = 'all 0.8s ease';
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, index * 150);
+            });
+            
+            // Анимация чисел в сводке
+            const summaryNumbers = document.querySelectorAll('.summary-card h3, .header-stat-number');
+            summaryNumbers.forEach(number => {
+                const targetValue = parseInt(number.textContent);
+                let currentValue = 0;
+                const increment = targetValue / 50;
+                
+                const timer = setInterval(() => {
+                    currentValue += increment;
+                    if (currentValue >= targetValue) {
+                        currentValue = targetValue;
+                        clearInterval(timer);
+                    }
+                    number.textContent = Math.floor(currentValue);
+                }, 40);
+            });
+        });
+        
+        // Плавная анимация hover эффектов
+        document.addEventListener('mouseover', function(e) {
+            if (e.target.classList.contains('summary-card')) {
+                e.target.style.transform = 'translateY(-8px) scale(1.02)';
+            }
+        });
+        
+        document.addEventListener('mouseout', function(e) {
+            if (e.target.classList.contains('summary-card')) {
+                e.target.style.transform = 'translateY(0) scale(1)';
+            }
+        });
+        
+        // Обработка клавиатурных команд
+        document.addEventListener('keydown', function(e) {
+            // Ctrl/Cmd + F для фокуса на поиске
+            if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
+                e.preventDefault();
+                document.querySelector('.search-box').focus();
+            }
+            
+            // Escape для очистки поиска
+            if (e.key === 'Escape') {
+                const searchBox = document.querySelector('.search-box');
+                searchBox.value = '';
+                searchCompanies('');
+                searchBox.blur();
+            }
+        });
+        
+        // Автосохранение состояния поиска
+        const searchBox = document.querySelector('.search-box');
+        searchBox.addEventListener('input', function() {
+            localStorage.setItem('insuranceReportSearch', this.value);
+        });
+        
+        // Восстановление состояния поиска при загрузке
+        window.addEventListener('load', function() {
+            const savedSearch = localStorage.getItem('insuranceReportSearch');
+            if (savedSearch) {
+                searchBox.value = savedSearch;
+                searchCompanies(savedSearch);
+            }
+        });
+        
+        // Улучшенная навигация
+        function openAllCompanies() {
+            document.querySelectorAll('.company-content').forEach(content => {
+                content.classList.add('active');
+            });
+            document.querySelectorAll('.toggle-btn').forEach(btn => {
+                btn.innerHTML = 'Свернуть <span class="expand-icon">▲</span>';
+            });
+        }
+        
+        function closeAllCompanies() {
+            document.querySelectorAll('.company-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.querySelectorAll('.toggle-btn').forEach(btn => {
+                btn.innerHTML = 'Развернуть <span class="expand-icon">▼</span>';
+            });
+        }
+        
+        // Добавляем кнопки управления всеми секциями
+        const controlsHTML = `
+            <div style="text-align: center; margin: 20px 0;">
+                <button onclick="openAllCompanies()" style="background: #667eea; color: white; border: none; padding: 10px 20px; border-radius: 25px; margin: 0 10px; cursor: pointer; transition: all 0.3s ease;">
+                    Развернуть все
+                </button>
+                <button onclick="closeAllCompanies()" style="background: #6c757d; color: white; border: none; padding: 10px 20px; border-radius: 25px; margin: 0 10px; cursor: pointer; transition: all 0.3s ease;">
+                    Свернуть все
+                </button>
+            </div>
+        `;
+        
+        document.querySelector('#companiesContainer').insertAdjacentHTML('beforebegin', controlsHTML);
+    </script>
+</body>
+</html>
