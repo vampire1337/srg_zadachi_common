@@ -1,0 +1,30 @@
+{
+  "exportedAt" : "2025-06-26 15:43:33",
+  "active" : true,
+  "title" : "Готовое жилье",
+  "insuranceType" : "PROPERTY_INSURANCE",
+  "profileOwnerCode" : "mkb",
+  "insuranceCompanyCode" : "ugsk_sk",
+  "includedFeePerc" : 0.00000,
+  "phoneLimitEnabled" : false,
+  "policiesPerPhoneLimit" : 2,
+  "phoneLimitPolicyMinDays" : 30,
+  "documentTypes" : [ {
+    "typeCode" : "$document",
+    "name" : "Паспорт заемщика/созаемщика"
+  } ],
+  "discountLimits" : [ ],
+  "insAmountThresholdPerc" : 0.00000,
+  "tariffs" : [ {
+    "regionFiasGuids" : [ ],
+    "tariffPerc" : 0.15400,
+    "tariffPercSpecial" : null
+  } ],
+  "regionLimits" : [ {
+    "regionLimit" : 30000000.00000,
+    "regionFiasGuids" : [ ],
+    "regionType" : "REALTY",
+    "clientCategoryTitles" : [ ]
+  } ],
+  "realtyTypes" : [ "FLAT" ]
+}

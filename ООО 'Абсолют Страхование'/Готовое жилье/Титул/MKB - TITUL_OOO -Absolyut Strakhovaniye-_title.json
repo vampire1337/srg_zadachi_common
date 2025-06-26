@@ -1,0 +1,51 @@
+{
+  "exportedAt" : "2025-06-26 15:42:03",
+  "active" : true,
+  "title" : "МКБ - ТИТУЛ",
+  "insuranceType" : "TITLE_INSURANCE",
+  "profileOwnerCode" : "mkb",
+  "insuranceCompanyCode" : "absolut_sk",
+  "includedFeePerc" : 0.00000,
+  "phoneLimitEnabled" : false,
+  "policiesPerPhoneLimit" : 2,
+  "phoneLimitPolicyMinDays" : 30,
+  "documentTypes" : [ {
+    "typeCode" : "$document",
+    "name" : "Отчет об оценке рыночной стоимости недвижимого имущества"
+  }, {
+    "typeCode" : "$document",
+    "name" : "ЕГРН / ЕГРП на дату регистрации права"
+  }, {
+    "typeCode" : "$document",
+    "name" : "Выписка из домовой книги"
+  }, {
+    "typeCode" : "$document",
+    "name" : "Документы-основания приобретения права собственности"
+  }, {
+    "typeCode" : "$document",
+    "name" : "Паспорт заемщика/созаемщика"
+  }, {
+    "typeCode" : "$document",
+    "name" : "Паспорт продавца"
+  } ],
+  "discountLimits" : [ ],
+  "insAmountThresholdPerc" : 0.00000,
+  "periodType" : "YEAR",
+  "tariffs" : [ {
+    "regionFiasGuids" : [ ],
+    "tariffPerc" : 0.20000,
+    "tariffPercSpecial" : null
+  } ],
+  "regionLimits" : [ {
+    "regionLimit" : 2500000.00000,
+    "regionFiasGuids" : [ ],
+    "regionType" : "REALTY",
+    "clientCategoryTitles" : [ ]
+  }, {
+    "regionLimit" : 2500000.00000,
+    "regionFiasGuids" : [ "0c5b2444-70a0-4932-980c-b4dc0d3f02b5", "29251dcf-00a1-4e34-98d4-5c47484a36d4" ],
+    "regionType" : "REALTY",
+    "clientCategoryTitles" : [ ]
+  } ],
+  "realtyTypes" : [ "FLAT", "HOUSE", "PARKING" ]
+}

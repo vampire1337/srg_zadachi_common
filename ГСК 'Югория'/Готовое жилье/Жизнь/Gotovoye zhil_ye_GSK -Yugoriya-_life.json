@@ -1,0 +1,589 @@
+{
+  "exportedAt" : "2025-06-26 15:42:54",
+  "active" : true,
+  "title" : "Строящееся жилье",
+  "insuranceType" : "BORROWER_INSURANCE",
+  "profileOwnerCode" : "mkb",
+  "insuranceCompanyCode" : "ugsk_sk",
+  "includedFeePerc" : 0.00000,
+  "phoneLimitEnabled" : false,
+  "policiesPerPhoneLimit" : 2,
+  "phoneLimitPolicyMinDays" : 30,
+  "documentTypes" : [ {
+    "typeCode" : "$document",
+    "name" : "Паспорт заемщика/созаемщика"
+  } ],
+  "discountLimits" : [ ],
+  "insurerAgeFrom" : 18,
+  "insurerAgeTo" : 65,
+  "endAge" : 70,
+  "firstYearAgeCorrection" : 1,
+  "otherYearAgeCorrection" : 1,
+  "ageResolutionMode" : "DATE_DIFF",
+  "tariffs" : [ {
+    "age" : 18,
+    "malePerc" : 0.25000,
+    "femalePerc" : 0.20000,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 19,
+    "malePerc" : 0.25000,
+    "femalePerc" : 0.20000,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 20,
+    "malePerc" : 0.25000,
+    "femalePerc" : 0.20000,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 21,
+    "malePerc" : 0.26300,
+    "femalePerc" : 0.20400,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 22,
+    "malePerc" : 0.27100,
+    "femalePerc" : 0.20400,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 23,
+    "malePerc" : 0.27100,
+    "femalePerc" : 0.20400,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 24,
+    "malePerc" : 0.29700,
+    "femalePerc" : 0.21200,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 25,
+    "malePerc" : 0.29700,
+    "femalePerc" : 0.21200,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 26,
+    "malePerc" : 0.29700,
+    "femalePerc" : 0.21200,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 27,
+    "malePerc" : 0.30500,
+    "femalePerc" : 0.22900,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 28,
+    "malePerc" : 0.30500,
+    "femalePerc" : 0.23700,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 29,
+    "malePerc" : 0.32300,
+    "femalePerc" : 0.23700,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 30,
+    "malePerc" : 0.34700,
+    "femalePerc" : 0.23700,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 31,
+    "malePerc" : 0.36500,
+    "femalePerc" : 0.24600,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 32,
+    "malePerc" : 0.38100,
+    "femalePerc" : 0.26300,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 33,
+    "malePerc" : 0.39100,
+    "femalePerc" : 0.27100,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 34,
+    "malePerc" : 0.42500,
+    "femalePerc" : 0.27100,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 35,
+    "malePerc" : 0.44100,
+    "femalePerc" : 0.29700,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 36,
+    "malePerc" : 0.48300,
+    "femalePerc" : 0.32300,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 37,
+    "malePerc" : 0.50900,
+    "femalePerc" : 0.34700,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 38,
+    "malePerc" : 0.53500,
+    "femalePerc" : 0.35700,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 39,
+    "malePerc" : 0.56800,
+    "femalePerc" : 0.38100,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 40,
+    "malePerc" : 0.59400,
+    "femalePerc" : 0.39100,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 41,
+    "malePerc" : 0.62800,
+    "femalePerc" : 0.41500,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 42,
+    "malePerc" : 0.66200,
+    "femalePerc" : 0.44100,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 43,
+    "malePerc" : 0.70400,
+    "femalePerc" : 0.46700,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 44,
+    "malePerc" : 0.73800,
+    "femalePerc" : 0.50100,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 45,
+    "malePerc" : 0.77200,
+    "femalePerc" : 0.52600,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 46,
+    "malePerc" : 0.85600,
+    "femalePerc" : 0.56000,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 47,
+    "malePerc" : 0.92400,
+    "femalePerc" : 0.60200,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 48,
+    "malePerc" : 1.00900,
+    "femalePerc" : 0.64500,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 49,
+    "malePerc" : 1.09400,
+    "femalePerc" : 0.68700,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 50,
+    "malePerc" : 1.19600,
+    "femalePerc" : 0.73800,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 51,
+    "malePerc" : 1.30700,
+    "femalePerc" : 0.79800,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 52,
+    "malePerc" : 1.41700,
+    "femalePerc" : 0.85600,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 53,
+    "malePerc" : 1.54400,
+    "femalePerc" : 0.91600,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 54,
+    "malePerc" : 1.68800,
+    "femalePerc" : 1.00100,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 55,
+    "malePerc" : 1.83200,
+    "femalePerc" : 1.07700,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 56,
+    "malePerc" : 1.98500,
+    "femalePerc" : 1.16200,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 57,
+    "malePerc" : 2.17100,
+    "femalePerc" : 1.27300,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 58,
+    "malePerc" : 2.37500,
+    "femalePerc" : 1.37400,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 59,
+    "malePerc" : 2.60400,
+    "femalePerc" : 1.51800,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 60,
+    "malePerc" : 2.69700,
+    "femalePerc" : 1.56900,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 61,
+    "malePerc" : 2.93500,
+    "femalePerc" : 1.72200,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 62,
+    "malePerc" : 3.14700,
+    "femalePerc" : 1.84900,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 63,
+    "malePerc" : 3.38400,
+    "femalePerc" : 2.01000,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 64,
+    "malePerc" : 3.62200,
+    "femalePerc" : 2.22200,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 65,
+    "malePerc" : 3.88500,
+    "femalePerc" : 2.40900,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 66,
+    "malePerc" : 5.12900,
+    "femalePerc" : 4.51100,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 67,
+    "malePerc" : 5.47900,
+    "femalePerc" : 4.89400,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 68,
+    "malePerc" : 5.89800,
+    "femalePerc" : 5.31900,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 69,
+    "malePerc" : 6.28100,
+    "femalePerc" : 5.91500,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 70,
+    "malePerc" : 6.70000,
+    "femalePerc" : 6.44600,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 71,
+    "malePerc" : 7.17100,
+    "femalePerc" : 7.00000,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 72,
+    "malePerc" : 7.65900,
+    "femalePerc" : 7.63900,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 73,
+    "malePerc" : 8.16500,
+    "femalePerc" : 8.31900,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 74,
+    "malePerc" : 8.68900,
+    "femalePerc" : 9.06400,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  }, {
+    "age" : 75,
+    "malePerc" : 9.26400,
+    "femalePerc" : 9.76600,
+    "malePercSpecial" : null,
+    "femalePercSpecial" : null
+  } ],
+  "limitGroups" : [ {
+    "regionFiasIds" : [ ],
+    "clientCategoryTitles" : [ ],
+    "limits" : [ {
+      "age" : 18,
+      "maleInsuranceLimit" : 35000000.00000,
+      "femaleInsuranceLimit" : 35000000.00000
+    }, {
+      "age" : 19,
+      "maleInsuranceLimit" : 35000000.00000,
+      "femaleInsuranceLimit" : 35000000.00000
+    }, {
+      "age" : 20,
+      "maleInsuranceLimit" : 35000000.00000,
+      "femaleInsuranceLimit" : 35000000.00000
+    }, {
+      "age" : 21,
+      "maleInsuranceLimit" : 35000000.00000,
+      "femaleInsuranceLimit" : 35000000.00000
+    }, {
+      "age" : 22,
+      "maleInsuranceLimit" : 35000000.00000,
+      "femaleInsuranceLimit" : 35000000.00000
+    }, {
+      "age" : 23,
+      "maleInsuranceLimit" : 35000000.00000,
+      "femaleInsuranceLimit" : 35000000.00000
+    }, {
+      "age" : 24,
+      "maleInsuranceLimit" : 35000000.00000,
+      "femaleInsuranceLimit" : 35000000.00000
+    }, {
+      "age" : 25,
+      "maleInsuranceLimit" : 35000000.00000,
+      "femaleInsuranceLimit" : 35000000.00000
+    }, {
+      "age" : 26,
+      "maleInsuranceLimit" : 35000000.00000,
+      "femaleInsuranceLimit" : 35000000.00000
+    }, {
+      "age" : 27,
+      "maleInsuranceLimit" : 35000000.00000,
+      "femaleInsuranceLimit" : 35000000.00000
+    }, {
+      "age" : 28,
+      "maleInsuranceLimit" : 35000000.00000,
+      "femaleInsuranceLimit" : 35000000.00000
+    }, {
+      "age" : 29,
+      "maleInsuranceLimit" : 35000000.00000,
+      "femaleInsuranceLimit" : 35000000.00000
+    }, {
+      "age" : 30,
+      "maleInsuranceLimit" : 35000000.00000,
+      "femaleInsuranceLimit" : 35000000.00000
+    }, {
+      "age" : 31,
+      "maleInsuranceLimit" : 35000000.00000,
+      "femaleInsuranceLimit" : 35000000.00000
+    }, {
+      "age" : 32,
+      "maleInsuranceLimit" : 35000000.00000,
+      "femaleInsuranceLimit" : 35000000.00000
+    }, {
+      "age" : 33,
+      "maleInsuranceLimit" : 35000000.00000,
+      "femaleInsuranceLimit" : 35000000.00000
+    }, {
+      "age" : 34,
+      "maleInsuranceLimit" : 35000000.00000,
+      "femaleInsuranceLimit" : 35000000.00000
+    }, {
+      "age" : 35,
+      "maleInsuranceLimit" : 30000000.00000,
+      "femaleInsuranceLimit" : 30000000.00000
+    }, {
+      "age" : 36,
+      "maleInsuranceLimit" : 30000000.00000,
+      "femaleInsuranceLimit" : 30000000.00000
+    }, {
+      "age" : 37,
+      "maleInsuranceLimit" : 30000000.00000,
+      "femaleInsuranceLimit" : 30000000.00000
+    }, {
+      "age" : 38,
+      "maleInsuranceLimit" : 30000000.00000,
+      "femaleInsuranceLimit" : 30000000.00000
+    }, {
+      "age" : 39,
+      "maleInsuranceLimit" : 30000000.00000,
+      "femaleInsuranceLimit" : 30000000.00000
+    }, {
+      "age" : 40,
+      "maleInsuranceLimit" : 30000000.00000,
+      "femaleInsuranceLimit" : 30000000.00000
+    }, {
+      "age" : 41,
+      "maleInsuranceLimit" : 30000000.00000,
+      "femaleInsuranceLimit" : 30000000.00000
+    }, {
+      "age" : 42,
+      "maleInsuranceLimit" : 30000000.00000,
+      "femaleInsuranceLimit" : 30000000.00000
+    }, {
+      "age" : 43,
+      "maleInsuranceLimit" : 30000000.00000,
+      "femaleInsuranceLimit" : 30000000.00000
+    }, {
+      "age" : 44,
+      "maleInsuranceLimit" : 30000000.00000,
+      "femaleInsuranceLimit" : 30000000.00000
+    }, {
+      "age" : 45,
+      "maleInsuranceLimit" : 23000000.00000,
+      "femaleInsuranceLimit" : 23000000.00000
+    }, {
+      "age" : 46,
+      "maleInsuranceLimit" : 23000000.00000,
+      "femaleInsuranceLimit" : 23000000.00000
+    }, {
+      "age" : 47,
+      "maleInsuranceLimit" : 23000000.00000,
+      "femaleInsuranceLimit" : 23000000.00000
+    }, {
+      "age" : 48,
+      "maleInsuranceLimit" : 23000000.00000,
+      "femaleInsuranceLimit" : 23000000.00000
+    }, {
+      "age" : 49,
+      "maleInsuranceLimit" : 23000000.00000,
+      "femaleInsuranceLimit" : 23000000.00000
+    }, {
+      "age" : 50,
+      "maleInsuranceLimit" : 23000000.00000,
+      "femaleInsuranceLimit" : 23000000.00000
+    }, {
+      "age" : 51,
+      "maleInsuranceLimit" : 23000000.00000,
+      "femaleInsuranceLimit" : 23000000.00000
+    }, {
+      "age" : 52,
+      "maleInsuranceLimit" : 23000000.00000,
+      "femaleInsuranceLimit" : 23000000.00000
+    }, {
+      "age" : 53,
+      "maleInsuranceLimit" : 23000000.00000,
+      "femaleInsuranceLimit" : 23000000.00000
+    }, {
+      "age" : 54,
+      "maleInsuranceLimit" : 23000000.00000,
+      "femaleInsuranceLimit" : 23000000.00000
+    }, {
+      "age" : 55,
+      "maleInsuranceLimit" : 0.00000,
+      "femaleInsuranceLimit" : 0.00000
+    }, {
+      "age" : 56,
+      "maleInsuranceLimit" : 0.00000,
+      "femaleInsuranceLimit" : 0.00000
+    }, {
+      "age" : 57,
+      "maleInsuranceLimit" : 0.00000,
+      "femaleInsuranceLimit" : 0.00000
+    }, {
+      "age" : 58,
+      "maleInsuranceLimit" : 0.00000,
+      "femaleInsuranceLimit" : 0.00000
+    }, {
+      "age" : 59,
+      "maleInsuranceLimit" : 0.00000,
+      "femaleInsuranceLimit" : 0.00000
+    }, {
+      "age" : 60,
+      "maleInsuranceLimit" : 0.00000,
+      "femaleInsuranceLimit" : 0.00000
+    }, {
+      "age" : 61,
+      "maleInsuranceLimit" : 0.00000,
+      "femaleInsuranceLimit" : 0.00000
+    }, {
+      "age" : 62,
+      "maleInsuranceLimit" : 0.00000,
+      "femaleInsuranceLimit" : 0.00000
+    }, {
+      "age" : 63,
+      "maleInsuranceLimit" : 0.00000,
+      "femaleInsuranceLimit" : 0.00000
+    }, {
+      "age" : 64,
+      "maleInsuranceLimit" : 0.00000,
+      "femaleInsuranceLimit" : 0.00000
+    }, {
+      "age" : 65,
+      "maleInsuranceLimit" : 0.00000,
+      "femaleInsuranceLimit" : 0.00000
+    }, {
+      "age" : 66,
+      "maleInsuranceLimit" : 0.00000,
+      "femaleInsuranceLimit" : 0.00000
+    }, {
+      "age" : 67,
+      "maleInsuranceLimit" : 0.00000,
+      "femaleInsuranceLimit" : 0.00000
+    }, {
+      "age" : 68,
+      "maleInsuranceLimit" : 0.00000,
+      "femaleInsuranceLimit" : 0.00000
+    }, {
+      "age" : 69,
+      "maleInsuranceLimit" : 0.00000,
+      "femaleInsuranceLimit" : 0.00000
+    }, {
+      "age" : 70,
+      "maleInsuranceLimit" : 0.00000,
+      "femaleInsuranceLimit" : 0.00000
+    } ]
+  } ]
+}

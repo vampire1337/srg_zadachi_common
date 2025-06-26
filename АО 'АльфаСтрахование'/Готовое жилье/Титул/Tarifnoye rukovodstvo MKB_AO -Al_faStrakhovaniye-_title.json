@@ -1,0 +1,51 @@
+{
+  "exportedAt" : "2025-06-26 15:47:34",
+  "active" : true,
+  "title" : "Тарифное руководство МКБ",
+  "insuranceType" : "TITLE_INSURANCE",
+  "profileOwnerCode" : "mkb",
+  "insuranceCompanyCode" : "alfastrah_sk",
+  "includedFeePerc" : 0.00000,
+  "phoneLimitEnabled" : false,
+  "policiesPerPhoneLimit" : 2,
+  "phoneLimitPolicyMinDays" : 30,
+  "documentTypes" : [ {
+    "typeCode" : "$document",
+    "name" : "Отчет об оценке рыночной стоимости недвижимого имущества"
+  }, {
+    "typeCode" : "$document",
+    "name" : "ЕГРН / ЕГРП на дату регистрации права"
+  }, {
+    "typeCode" : "$document",
+    "name" : "Выписка из домовой книги"
+  }, {
+    "typeCode" : "$document",
+    "name" : "Документы-основания приобретения права собственности"
+  }, {
+    "typeCode" : "$document",
+    "name" : "Паспорт заемщика/созаемщика"
+  }, {
+    "typeCode" : "$document",
+    "name" : "Паспорт продавца"
+  } ],
+  "discountLimits" : [ ],
+  "insAmountThresholdPerc" : 0.00000,
+  "periodType" : "YEAR",
+  "tariffs" : [ {
+    "regionFiasGuids" : [ ],
+    "tariffPerc" : 0.20000,
+    "tariffPercSpecial" : null
+  } ],
+  "regionLimits" : [ {
+    "regionLimit" : 7000000.00000,
+    "regionFiasGuids" : [ ],
+    "regionType" : "REALTY",
+    "clientCategoryTitles" : [ ]
+  }, {
+    "regionLimit" : 0.00000,
+    "regionFiasGuids" : [ "de67dc49-b9ba-48a3-a4cc-c2ebfeca6c5e", "b2d8cd20-cabc-4deb-afad-f3c4b4d55821", "bd8e6511-e4b9-4841-90de-6bbc231a789e", "0bb7fa19-736d-49cf-ad0e-9774c4dae09b", "61b95807-388a-4cb1-9bee-889f7cf811c8", "7bac30d2-0e95-499e-a34a-7351a8f13833", "de459e9c-2933-4923-83d1-9c64cfd7a817", "486c7c54-caa1-4b04-8dd3-c182313337fc", "10530e14-2627-4e68-aae4-c57373defcf4", "d28a09a6-ad4e-407a-ad64-c208549befc4" ],
+    "regionType" : "REALTY",
+    "clientCategoryTitles" : [ ]
+  } ],
+  "realtyTypes" : [ "FLAT", "HOUSE", "PARKING" ]
+}
